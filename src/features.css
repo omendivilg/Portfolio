@@ -508,10 +508,9 @@ textarea:focus-visible,
     background: var(--paper);
     align-self: start;
   }
-  .hero-photo.fixed-portrait {
+  .hero-photo {
     height: auto;
     aspect-ratio: 1.35;
-    object-fit: cover;
   }
   .hero-note-links {
     position: relative;

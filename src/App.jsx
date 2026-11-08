@@ -116,18 +116,6 @@ const projects = [
     name: "SPL ERP",
     category: "Product engineering",
     status: "Live product",
-    cover: (
-      <>
-        SPL
-        <span>
-          Clients.
-          <br />
-          Events.
-          <br />
-          Finances.
-        </span>
-      </>
-    ),
     description:
       "A desktop and web application designed hand in hand with SPL. Bringing clients, events, and finances into one clear picture.",
     tags: ["React", "TypeScript", "Tauri", "NestJS", "PostgreSQL"],
@@ -428,7 +416,7 @@ export function App() {
           </aside>
           <div className="hero-visual reveal">
             <img
-              className="hero-photo fixed-portrait"
+              className="hero-photo"
               src="/assets/oscar-studio.png"
               alt="Portrait of Oscar Mendivil in a black suit and red tie"
               width="1254"

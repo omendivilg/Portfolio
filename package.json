@@ -4,20 +4,24 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test:e2e": "npm run build && playwright test",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write src index.html vite.config.mjs",
-    "format:check": "prettier --check src index.html vite.config.mjs"
+    "format": "prettier --write src tests index.html vite.config.mjs playwright.config.mjs",
+    "format:check": "prettier --check src tests index.html vite.config.mjs playwright.config.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
     "@phosphor-icons/react": "2.1.10",
     "gsap": "3.15.0",
+    "matter-js": "0.20.0",
+    "pyodide": "314.0.7",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.0",
     "@vitejs/plugin-react": "5.0.4",
     "prettier": "^3.6.2",
     "vite": "^6.4.5"

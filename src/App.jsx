@@ -1,4 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { FallingSkills } from "./components/FallingSkills.jsx";
+import { HeroName } from "./components/HeroName.jsx";
+import CompilerDemo from "./components/CompilerDemo.jsx";
 import {
   ArrowUpRight,
   ArrowDown,
@@ -134,6 +137,52 @@ const projects = [
       "I worked directly with the company to understand what mattered, then designed and built a dashboard around its priorities. I owned requirements, application and database design, implementation, testing, and deployment.",
     outcome:
       "A running desktop and web application hosted on Fly.io, centralizing client tracking, scheduling, finances, and business dashboards.",
+  },
+  {
+    id: "compiler",
+    name: "Compiler",
+    category: "Product engineering",
+    status: "Personal project",
+    cover: (
+      <>
+        <div className="compiler-cover-editor" aria-hidden="true">
+          <div className="compiler-cover-file">
+            <span>● ● ●</span> playground.om
+          </div>
+          <pre>
+            <span className="code-keyword">int</span>
+            {" twice("}
+            <span className="code-keyword">int</span>
+            {" value) {\n    "}
+            <span className="code-keyword">return</span>
+            {" value * "}
+            <span className="code-number">2</span>
+            {";\n}\n\n"}
+            <span className="code-keyword">int</span>
+            {" total = twice("}
+            <span className="code-number">21</span>
+            {");"}
+          </pre>
+          <p>
+            <span aria-hidden="true">↳</span> All checks passed.
+          </p>
+        </div>
+        <span>
+          Small language.
+          <br />
+          Deep understanding.
+        </span>
+      </>
+    ),
+    description:
+      "A compiler front end built in Python. From a stream of characters to syntax trees, scopes, and type checks. Try it with your own code.",
+    tags: ["Python", "Parsing", "Semantic analysis"],
+    problem:
+      "Understanding what happens between writing code and knowing whether it makes sense: recognizing tokens, structuring expressions, resolving names, and checking types.",
+    contribution:
+      "I designed a C-like language and implemented its lexer, recursive-descent parser, abstract syntax tree, and semantic analyzer in Python. The analyzer uses nested symbol scopes and a visitor pattern to check declarations, types, and function calls.",
+    outcome:
+      "A working compiler front end with a browser playground running the original Python implementation. It performs lexical, syntax, and semantic analysis; code generation and program execution are outside its current scope.",
   },
   {
     id: "rag",
@@ -344,13 +393,8 @@ export function App() {
             </a>
           </div>
           <div className="hero-title">
-            <h1 id="hero-heading">
-              {["Real problems.", "Thoughtful", "software."].map((line) => (
-                <span className="headline-line" key={line}>
-                  <span>{line}</span>
-                </span>
-              ))}
-            </h1>
+            <FallingSkills motion={motion} />
+            <HeroName />
             <div className="hero-title-meta">
               <span>BUILT WITH PEOPLE. DRIVEN BY CURIOSITY.</span>
               <span>BASED IN MEXICALI, MX</span>
@@ -443,13 +487,13 @@ export function App() {
               <br />
               work & ideas.
             </h2>
-            <span className="section-count">(03)</span>
+            <span className="section-count">(0{projects.length})</span>
           </div>
           <div className="work-grid">
             <aside className="work-filter">
               <p className="eyebrow">A FEW THINGS I'M BUILDING</p>
               <div className="filter-list" aria-label="Filter projects">
-                {["All work", ...projects.map((p) => p.category)].map(
+                {["All work", ...new Set(projects.map((p) => p.category))].map(
                   (label) => (
                     <button
                       key={label}
@@ -613,7 +657,7 @@ export function App() {
       </footer>
       <dialog
         ref={dialog}
-        className="case-study"
+        className={`case-study${selected?.id === "compiler" ? " compiler-case-study" : ""}`}
         onCancel={(e) => {
           e.preventDefault();
           close();
@@ -633,6 +677,7 @@ export function App() {
             </p>
             <h2 id="case-title">{selected.name}</h2>
             {selected.id === "spl" && <SplGallery motion={motion} />}
+            {selected.id === "compiler" && <CompilerDemo />}
             {[
               ["The problem", selected.problem],
               ["My contribution", selected.contribution],
@@ -650,11 +695,18 @@ export function App() {
             </div>
             <a
               className="text-link"
-              href="https://www.linkedin.com/in/oscar-mendivil-gutierrez"
+              href={
+                selected.id === "compiler"
+                  ? "https://github.com/omendivilg/Compilador"
+                  : "https://www.linkedin.com/in/oscar-mendivil-gutierrez"
+              }
               target="_blank"
               rel="noreferrer"
             >
-              Discuss this project on LinkedIn <ArrowUpRight />
+              {selected.id === "compiler"
+                ? "Explore the compiler on GitHub"
+                : "Discuss this project on LinkedIn"}{" "}
+              <ArrowUpRight />
             </a>
           </div>
         )}

@@ -8,6 +8,7 @@ Built with React, Vite, GSAP, and a self-hosted Inter font, with static hosting 
 ## Featured work
 
 - **SPL ERP**: A live desktop and web application bringing client management, events, finances, and business dashboards together.
+- **[Compiler](https://github.com/omendivilg/Compilador)**: A personal Python compiler front end for a C-like language, with an editable browser demo for lexical, syntax, and semantic analysis.
 - **RAG architecture study**: Research and an architecture recommendation exploring TypeSafe Jev as a decision layer before retrieval for a private smart-building company.
 - **Obsidian second brain**: An ongoing personal knowledge system for connecting ideas, documenting learning, and working through everyday questions.
 
@@ -41,6 +42,29 @@ npm run dev
 
 Open the local URL printed by Vite.
 Application code lives in `src/`, and images and the resume live in `public/assets/`.
+
+## Interactive features
+
+The name hero uses Matter.js for falling skill pills, pointer dragging, and keyboard tossing.
+It honors the system reduced-motion preference and the footer motion toggle.
+Physics pauses when the hero is offscreen or the browser tab is hidden, and stops rendering once the pills settle.
+
+The Compiler case study lazy-loads the original Python implementation in a Pyodide module worker.
+The pinned Python runtime is served locally and is copied from the npm dependency during the Vite build.
+Opening the compiler downloads approximately 13 MB of runtime files before HTTP compression; the homepage does not request them.
+The demo accepts a custom C-like language and performs static checks without executing the submitted program.
+Source stays in the browser.
+The worker has loading and execution timeouts, can be retried after an error, and terminates when the case study closes.
+See [compiler source provenance](src/compiler/SOURCE.md) for the original revision and adapter boundaries.
+
+Run the browser checks against a production build:
+
+```sh
+npx playwright install chromium
+npm run test:e2e
+```
+
+The tests cover desktop and phone-sized Chromium, the actual Python runtime, compiler diagnostics and recovery, hero interaction and reduced motion, project filters, and the existing portrait and SPL gallery.
 
 ## Build and deployment
 

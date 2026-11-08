@@ -138,6 +138,8 @@ p {
   font-weight: 400;
 }
 .hero-intro {
+  grid-column: 1;
+  grid-row: 2;
   max-width: 310px;
   padding-top: 8px;
 }
@@ -147,21 +149,32 @@ p {
   letter-spacing: -0.7px;
   margin: 21px 0 28px;
 }
+.hero-title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+  margin-bottom: 50px;
+}
 .hero-title h1 {
-  font-size: clamp(60px, 7.9vw, 160px);
-  letter-spacing: -0.075em;
-  line-height: 0.96;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.18em;
+  font-size: clamp(60px, 11.5vw, 250px);
+  letter-spacing: -0.085em;
+  line-height: 0.85;
   font-weight: 850;
   padding-bottom: 12px;
 }
 .headline-line {
   display: block;
+  flex: 0 0 auto;
   overflow: hidden;
   padding-bottom: 0.08em;
   margin-bottom: -0.08em;
 }
 .headline-line > span {
   display: block;
+  width: max-content;
   white-space: nowrap;
 }
 .hero-title-meta {
@@ -174,6 +187,8 @@ p {
   color: var(--muted);
 }
 .hero-aside {
+  grid-column: 1;
+  grid-row: 3;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -192,9 +207,11 @@ p {
   font-size: 10px;
 }
 .hero-visual {
+  grid-column: 2;
+  grid-row: 2 / 4;
   position: relative;
   overflow: hidden;
-  margin-top: 54px;
+  margin-top: 0;
   aspect-ratio: 1.55;
   background: #111513;
 }
@@ -268,8 +285,8 @@ p {
 }
 .project-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 20px;
 }
 .project {
   min-width: 0;
@@ -513,7 +530,7 @@ footer svg {
 }
 @media (min-width: 1800px) {
   .hero-title h1 {
-    font-size: 160px;
+    font-size: min(11.5vw, 250px);
   }
   .hero-intro {
     max-width: 350px;
@@ -522,7 +539,7 @@ footer svg {
     font-size: 24px;
   }
   .hero-visual {
-    margin-top: 70px;
+    margin-top: 0;
   }
   .project-cover {
     height: 550px;
@@ -601,11 +618,13 @@ footer svg {
   }
   .hero-title {
     grid-row: 1;
+    margin-bottom: 0;
   }
   .hero-title h1 {
-    font-size: clamp(46px, 11.5vw, 88px);
-    line-height: 0.98;
-    letter-spacing: -0.07em;
+    display: block;
+    font-size: clamp(46px, 16vw, 120px);
+    line-height: 0.88;
+    letter-spacing: -0.075em;
   }
   .hero-title-meta {
     font-size: 8px;
@@ -648,6 +667,7 @@ footer svg {
     display: none;
   }
   .hero-visual {
+    grid-column: 1;
     grid-row: 3;
     margin-top: 32px;
     aspect-ratio: 0.92;

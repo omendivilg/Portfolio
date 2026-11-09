@@ -64,6 +64,15 @@ Redeploy a known good prior image using `fly deploy --image <previous-image-refe
 There are no data migrations to reverse.
 For the first release, a failed deployment can be stopped with `fly scale count 0`; the app and source remain available for repair.
 
+## Verified SPL visual refresh
+
+Release v5 was published from source commit `8786255` on `main`.
+The deployed image is `registry.fly.io/oscar-mendivil:deployment-01M6YXGJ7FJN9CRH1B1TNTZHVB`.
+The release replaces the previous four SPL screenshots with six current views, updates the project cover, and widens the SPL gallery.
+All 10 local browser checks passed, and the desktop and mobile gallery checks passed against the live site.
+All six production image files match the supplied originals byte for byte, the old image paths return 404, and the HTTP health check is passing.
+The previous known good release is v4, using image `registry.fly.io/oscar-mendivil:deployment-01M6YVCGZTEVVCR78RSZFFDW5Q`.
+
 ## Verified hero and compiler release
 
 Release v4 was published on November 8, 2026 (America/Tijuana), from source commit `646bd02` on `main`.

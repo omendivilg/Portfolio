@@ -43,7 +43,7 @@ The portfolio source tree, planning notes, and local credentials are excluded.
 
 - Confirm `/` serves the portfolio over HTTPS and `/healthz` returns `ok`.
 - Confirm the generated JavaScript, CSS, and font files load.
-- Confirm the portrait, six SPL screenshots, and resume return the correct file types.
+- Confirm the portrait, seven SPL screenshots, and resume return the correct file types.
 - Confirm the compiler's versioned `.mjs` modules use a JavaScript content type and its `.wasm` file uses `application/wasm`.
 - Confirm missing files return 404, and HTTP redirects to HTTPS.
 - Inspect the personal cards, project filtering, case-study gallery, keyboard behavior, and mobile layout in a browser.

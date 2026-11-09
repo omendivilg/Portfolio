@@ -273,13 +273,15 @@ test("project filters stay unique and existing portrait and SPL interactions sti
     "Event management",
     "Create an event",
     "Financial results",
+    "Income & expenses",
     "Payroll management",
   ];
   const displayedImages = new Set();
+  const galleryTotal = String(galleryLabels.length).padStart(2, "0");
   for (const [index, label] of galleryLabels.entries()) {
     await gallery.getByRole("button", { name: label, exact: true }).click();
     await expect(gallery.locator("figcaption")).toContainText(
-      `${String(index + 1).padStart(2, "0")} / 06`,
+      `${String(index + 1).padStart(2, "0")} / ${galleryTotal}`,
     );
     await expect
       .poll(() =>
@@ -297,11 +299,15 @@ test("project filters stay unique and existing portrait and SPL interactions sti
       }),
     ).toHaveAttribute("href", source);
   }
-  expect(displayedImages.size).toBe(6);
+  expect(displayedImages.size).toBe(galleryLabels.length);
   await page.getByRole("button", { name: "Next SPL screenshot" }).click();
-  await expect(gallery.locator("figcaption")).toContainText("01 / 06");
+  await expect(gallery.locator("figcaption")).toContainText(
+    `01 / ${galleryTotal}`,
+  );
   await page.keyboard.press("ArrowLeft");
-  await expect(gallery.locator("figcaption")).toContainText("06 / 06");
+  await expect(gallery.locator("figcaption")).toContainText(
+    `${galleryTotal} / ${galleryTotal}`,
+  );
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await page

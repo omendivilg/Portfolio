@@ -29,6 +29,7 @@ SPL screenshots shown in the portfolio:
 - [Event management](https://oscar-mendivil.fly.dev/assets/spl-events-0385f13e.png)
 - [Event creation](https://oscar-mendivil.fly.dev/assets/spl-event-creation-91cca56e.png)
 - [Financial results](https://oscar-mendivil.fly.dev/assets/spl-finances-3b8caa09.png)
+- [Income and expenses](https://oscar-mendivil.fly.dev/assets/spl-income-expenses-ec172890.png)
 - [Payroll management](https://oscar-mendivil.fly.dev/assets/spl-payroll-784189f6.png)
 
 ## Run locally

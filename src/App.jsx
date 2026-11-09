@@ -40,6 +40,11 @@ const splShots = [
     alt: "SPL finance overview comparing projected results, agreed income, labor costs, recorded expenses, and cash results",
   },
   {
+    src: "/assets/spl-income-expenses-ec172890.png",
+    label: "Income & expenses",
+    alt: "SPL finance screen showing income unrelated to events, collection status, expense filters, and a category spending chart",
+  },
+  {
     src: "/assets/spl-payroll-784189f6.png",
     label: "Payroll management",
     alt: "SPL weekly payroll detail with employee base pay, additions, deductions, net pay, and a payment summary",

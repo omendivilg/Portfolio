@@ -66,6 +66,11 @@ For the first release, a failed deployment can be stopped with `fly scale count 
 
 ## Verified SPL visual refresh
 
+Release v6 adds the seventh SPL screenshot for standalone income and expense analysis, from source commit `8939392`.
+Its image is `registry.fly.io/oscar-mendivil:deployment-01M6YXQ4PQK1F2KDHSAE5V483G`.
+The desktop and mobile gallery checks pass against the live site, the new image matches the supplied original, and the HTTP health check is passing.
+The previous known good image is the v5 image recorded below.
+
 Release v5 was published from source commit `8786255` on `main`.
 The deployed image is `registry.fly.io/oscar-mendivil:deployment-01M6YXGJ7FJN9CRH1B1TNTZHVB`.
 The release replaces the previous four SPL screenshots with six current views, updates the project cover, and widens the SPL gallery.

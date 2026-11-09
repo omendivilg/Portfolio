@@ -64,6 +64,21 @@ Redeploy a known good prior image using `fly deploy --image <previous-image-refe
 There are no data migrations to reverse.
 For the first release, a failed deployment can be stopped with `fly scale count 0`; the app and source remain available for repair.
 
+## Verified hero and compiler release
+
+Release v4 was published on November 8, 2026 (America/Tijuana), from source commit `646bd02` on `main`.
+The deployed image is `registry.fly.io/oscar-mendivil:deployment-01M6YVCGZTEVVCR78RSZFFDW5Q`.
+Machine `815132c93690d8` remains in `lax`, and the HTTP health check is passing.
+
+The production build and nginx configuration validation passed during the remote build.
+All 10 desktop and mobile Playwright checks passed against the public HTTPS site, covering falling skills, dragging, reduced motion, compiler analysis and recovery, project filters, personal notes, and the SPL gallery.
+Desktop and mobile screenshots were visually inspected, including the name fitting the available width.
+The homepage, health endpoint, built assets, portrait, screenshots, resume, Python modules, and versioned runtime files returned the expected responses and file types.
+HTTP redirects to HTTPS, and missing files, portfolio source paths, scratch artifacts, and `.env` paths return 404.
+
+The previous known good release is v3, using image `registry.fly.io/oscar-mendivil:deployment-01M6FB44670BXAAYV6X3Q6T3Z9`.
+Use that image with the recovery command above if rollback is required.
+
 ## Verified first release
 
 Deployed on November 2, 2026, with image `registry.fly.io/oscar-mendivil:deployment-01M6FB44670BXAAYV6X3Q6T3Z9`.

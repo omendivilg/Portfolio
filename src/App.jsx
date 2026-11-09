@@ -15,24 +15,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const splShots = [
   {
-    src: "/assets/spl-dashboard.png",
+    src: "/assets/spl-dashboard-30c56a7f.png",
     label: "Financial dashboard",
-    alt: "SPL dashboard showing collections, expenses, outstanding balances, and expenses by category",
+    alt: "Updated SPL financial dashboard showing collections, payments, outstanding balances, cash profit, and weekly financial trends",
   },
   {
-    src: "/assets/spl-events.png",
+    src: "/assets/spl-expenses-aaf0a570.png",
+    label: "Expenses & planning",
+    alt: "SPL expense breakdown with a category chart, expense records, upcoming events, and outstanding event balances",
+  },
+  {
+    src: "/assets/spl-events-0385f13e.png",
     label: "Event management",
     alt: "SPL event list with an event detail panel, payment status, and financial records",
   },
   {
-    src: "/assets/spl-expenses.png",
-    label: "Expense breakdown",
-    alt: "SPL expense categories displayed as a bar chart with detailed records",
+    src: "/assets/spl-event-creation-91cca56e.png",
+    label: "Create an event",
+    alt: "SPL event creation form with fields for business unit, client, venue, date, and agreed price",
   },
   {
-    src: "/assets/spl-trends.png",
-    label: "Weekly financial trends",
-    alt: "SPL weekly chart comparing income, expenses, net profit, and payroll",
+    src: "/assets/spl-finances-3b8caa09.png",
+    label: "Financial results",
+    alt: "SPL finance overview comparing projected results, agreed income, labor costs, recorded expenses, and cash results",
+  },
+  {
+    src: "/assets/spl-payroll-784189f6.png",
+    label: "Payroll management",
+    alt: "SPL weekly payroll detail with employee base pay, additions, deductions, net pay, and a payment summary",
   },
 ];
 
@@ -83,7 +93,10 @@ function SplGallery({ motion }) {
         </a>
         <figcaption aria-live="polite">
           <span>{splShots[index].label}</span>
-          <span>0{index + 1} / 04</span>
+          <span>
+            {String(index + 1).padStart(2, "0")} /{" "}
+            {String(splShots.length).padStart(2, "0")}
+          </span>
         </figcaption>
       </figure>
       <div className="gallery-controls">
@@ -645,7 +658,7 @@ export function App() {
       </footer>
       <dialog
         ref={dialog}
-        className={`case-study${selected?.id === "compiler" ? " compiler-case-study" : ""}`}
+        className={`case-study${selected?.id === "compiler" ? " compiler-case-study" : selected?.id === "spl" ? " spl-case-study" : ""}`}
         onCancel={(e) => {
           e.preventDefault();
           close();

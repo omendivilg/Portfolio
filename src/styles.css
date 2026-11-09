@@ -793,6 +793,9 @@ footer svg {
   font-size: 26px;
   margin-top: 25px;
 }
+.spl-case-study {
+  width: min(1280px, calc(100vw - 32px));
+}
 .spl-gallery {
   margin: 0 0 35px;
 }
@@ -808,7 +811,7 @@ footer svg {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1.6;
+  aspect-ratio: 2;
   object-fit: contain;
 }
 .spl-gallery figcaption {

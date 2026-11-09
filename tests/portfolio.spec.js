@@ -262,8 +262,46 @@ test("project filters stay unique and existing portrait and SPL interactions sti
     .click();
   await page.getByRole("button", { name: "Next SPL screenshot" }).click();
   await expect(page.locator(".spl-gallery figcaption")).toContainText(
-    "Event management",
+    "Expenses & planning",
   );
+  const gallery = page.getByRole("region", {
+    name: "SPL application screenshots",
+  });
+  const galleryLabels = [
+    "Financial dashboard",
+    "Expenses & planning",
+    "Event management",
+    "Create an event",
+    "Financial results",
+    "Payroll management",
+  ];
+  const displayedImages = new Set();
+  for (const [index, label] of galleryLabels.entries()) {
+    await gallery.getByRole("button", { name: label, exact: true }).click();
+    await expect(gallery.locator("figcaption")).toContainText(
+      `${String(index + 1).padStart(2, "0")} / 06`,
+    );
+    await expect
+      .poll(() =>
+        gallery
+          .locator("img")
+          .evaluate((image) => image.complete && image.naturalWidth > 0),
+      )
+      .toBe(true);
+    const source = await gallery.locator("img").getAttribute("src");
+    displayedImages.add(source);
+    await expect(
+      gallery.getByRole("link", {
+        name: `Open full-size ${label}`,
+        exact: true,
+      }),
+    ).toHaveAttribute("href", source);
+  }
+  expect(displayedImages.size).toBe(6);
+  await page.getByRole("button", { name: "Next SPL screenshot" }).click();
+  await expect(gallery.locator("figcaption")).toContainText("01 / 06");
+  await page.keyboard.press("ArrowLeft");
+  await expect(gallery.locator("figcaption")).toContainText("06 / 06");
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await page

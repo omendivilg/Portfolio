@@ -24,10 +24,12 @@ Explore the [work](https://oscar-mendivil.fly.dev/#work) and [about](https://osc
 
 SPL screenshots shown in the portfolio:
 
-- [Financial dashboard](https://oscar-mendivil.fly.dev/assets/spl-dashboard.png)
-- [Event management](https://oscar-mendivil.fly.dev/assets/spl-events.png)
-- [Expense breakdown](https://oscar-mendivil.fly.dev/assets/spl-expenses.png)
-- [Weekly financial trends](https://oscar-mendivil.fly.dev/assets/spl-trends.png)
+- [Financial dashboard](https://oscar-mendivil.fly.dev/assets/spl-dashboard-30c56a7f.png)
+- [Expenses and planning](https://oscar-mendivil.fly.dev/assets/spl-expenses-aaf0a570.png)
+- [Event management](https://oscar-mendivil.fly.dev/assets/spl-events-0385f13e.png)
+- [Event creation](https://oscar-mendivil.fly.dev/assets/spl-event-creation-91cca56e.png)
+- [Financial results](https://oscar-mendivil.fly.dev/assets/spl-finances-3b8caa09.png)
+- [Payroll management](https://oscar-mendivil.fly.dev/assets/spl-payroll-784189f6.png)
 
 ## Run locally
 
